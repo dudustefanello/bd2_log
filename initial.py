@@ -1,4 +1,4 @@
-import json
+import json, psycopg2
 
 from connection import get_connection
 
@@ -8,6 +8,7 @@ def set_initial():
     initial = json.loads(open('metadado.json').read())['INITIAL']
     with get_connection() as conn:
         with conn.cursor() as curs:
+            curs.execute('CREATE TABLE IF NOT EXISTS tabela (id int4 primary key, a int, b int, c int, d int);')
             curs.execute('TRUNCATE TABLE tabela;')
 
             for i in initial:

@@ -6,6 +6,6 @@ def get_connection():
         host='localhost',
         database='postgres',
         user='postgres',
-        password='Duckbill#Postgres01',
-        port='5433'
+        password='postgres',
+        port='5432'
     )
